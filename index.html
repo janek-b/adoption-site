@@ -11,8 +11,20 @@
   <body>
     <div class="container">
       <div class="row">
+        <div class="jumbotron">
+          <h1>Adoption Site</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="well">
+            <button id="add-new-pet" type="button" class="btn btn-primary">Add a Pet</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-6">
-          <form>
+          <form id="new-pet">
             <div class="form-group">
               <label for="name">Animal name:</label>
               <input type="text" name="name" id="name">
@@ -41,6 +53,33 @@
             </select>
             <button type="submit" class="btn btn-success" name="button">Submit</button>
           </form>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul id="adoptable-pets">
+
+          </ul>
+        </div>
+      </div>
+      <div id="pet-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title pet-name"></h4>
+            </div>
+            <div class="modal-body">
+              <h4>Name: <span class="pet-name"></span></h4>
+              <h4>Type: <span id="pet-type"></span></h4>
+              <h4>Breed: <span id="pet-breed"></span></h4>
+              <h4>Age: <span id="pet-age"></span></h4>
+              <h4>Gender: <span id="pet-gender"></span></h4>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
