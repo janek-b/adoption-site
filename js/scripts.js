@@ -25,3 +25,30 @@ console.log(adoptableAnimals);
 console.log(adoptableAnimals.getAnimalType("dog"));
 
 // Front-End
+$(function(){
+  var allAnimals = new AllAnimals();
+  $("#add-new-pet").click(function(){
+    $("form#new-pet").show();
+  });
+
+  $("form#new-pet").submit(function(){
+    event.preventDefault();
+
+    $("form#new-pet").hide();
+    var animalName = $("#name").val();
+    var animalBreed = $("#breed").val();
+    var animalAge = $("#age").val();
+    var animalType = $("#animal-type").val();
+    var animalGender = $("#animal-gender").val();
+
+    var pet = new Animal (animalName, animalType, animalBreed, animalAge, animalGender);
+
+    allAnimals.animals.push(pet);
+
+  });
+
+  function populatelist(animallist){
+    animallist.forEach();
+  }
+
+});
