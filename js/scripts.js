@@ -17,16 +17,12 @@ AllAnimals.prototype.getAnimalType = function(animalType) {
   });
 };
 
-var adoptableAnimals = new AllAnimals();
-adoptableAnimals.animals.push(new Animal("turbo", "dog", "mutt", 4, "male"))
-adoptableAnimals.animals.push(new Animal("Steve", "dog", "mutt", 1, "male"))
-adoptableAnimals.animals.push(new Animal("kitty", "cat", "mutt", 1, "male"))
-console.log(adoptableAnimals);
-console.log(adoptableAnimals.getAnimalType("dog"));
-
 // Front-End
 $(function(){
   var allAnimals = new AllAnimals();
+  allAnimals.animals.push(new Animal("turbo", "dog", "mutt", 4, "male"))
+  allAnimals.animals.push(new Animal("Steve", "dog", "mutt", 1, "male"))
+  allAnimals.animals.push(new Animal("kitty", "cat", "mutt", 1, "male"))
   $("#add-new-pet").click(function(){
     $("form#new-pet").show();
   });
@@ -44,11 +40,25 @@ $(function(){
     var pet = new Animal (animalName, animalType, animalBreed, animalAge, animalGender);
 
     allAnimals.animals.push(pet);
-
+    populatelist(allAnimals.animals);
+    console.log(allAnimal.a)
   });
 
   function populatelist(animallist){
-    animallist.forEach();
+    $("#adoptable-pets").text("");
+    animallist.forEach(function(animal){
+      $("#adoptable-pets").append("<li>" + animal.animalName + "</li>")
+      $("#adoptable-pets li").last().click(function(){
+        $(".pet-name").text(animal.animalName);
+        $("#pet-type").text(animal.animalType);
+        $("#pet-breed").text(animal.breed);
+        $("#pet-age").text(animal.age);
+        $("#pet-gender").text(animal.gender);
+        $("#pet-modal").modal();
+      });
+    });
   }
+
+  populatelist(allAnimals.animals);
 
 });
